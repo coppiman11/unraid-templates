@@ -1,0 +1,198 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>qbitpull</Name>
+  <Repository>ghcr.io/coppiman11/qbitpull:latest</Repository>
+  <Registry>https://ghcr.io</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>bash</Shell>
+  <Privileged>false</Privileged>
+  <Support/>
+  <Project>https://github.com/coppiman11/qbitpull</Project>
+  <Overview>
+    QbitPull automatically downloads completed torrents from a remote qBittorrent
+    instance via SFTP using lftp for fast parallel transfers. Includes a live web
+    dashboard with download progress, ETA, pause/resume, and history.
+  </Overview>
+  <Category>Downloaders:</Category>
+  <WebUI>http://[IP]:[PORT:8686]</WebUI>
+  <TemplateURL/>
+  <Icon>https://raw.githubusercontent.com/coppiman11/qbitpull/main/icon.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled/>
+  <DonateText/>
+  <DonateLink/>
+  <Requires/>
+  <Config
+    Name="Dashboard Port"
+    Target="8686"
+    Default="8686"
+    Mode="tcp"
+    Description="Port for the QbitPull web dashboard"
+    Type="Port"
+    Display="always"
+    Required="true"
+    Mask="false">8686</Config>
+  <Config
+    Name="Download Directory"
+    Target="/data"
+    Default="/mnt/user/downloads"
+    Mode="rw"
+    Description="Local path where downloaded torrents are saved"
+    Type="Path"
+    Display="always"
+    Required="true"
+    Mask="false">/mnt/user/downloads</Config>
+  <Config
+    Name="QBIT_HOST"
+    Target="QBIT_HOST"
+    Default=""
+    Mode=""
+    Description="qBittorrent Web API URL (e.g. https://user:pass@host/qbittorrent/)"
+    Type="Variable"
+    Display="always"
+    Required="true"
+    Mask="false"/>
+  <Config
+    Name="QBIT_USER"
+    Target="QBIT_USER"
+    Default=""
+    Mode=""
+    Description="qBittorrent username"
+    Type="Variable"
+    Display="always"
+    Required="true"
+    Mask="false"/>
+  <Config
+    Name="QBIT_PASS"
+    Target="QBIT_PASS"
+    Default=""
+    Mode=""
+    Description="qBittorrent password"
+    Type="Variable"
+    Display="always"
+    Required="true"
+    Mask="true"/>
+  <Config
+    Name="SFTP_HOST"
+    Target="SFTP_HOST"
+    Default=""
+    Mode=""
+    Description="Remote SFTP server hostname or IP"
+    Type="Variable"
+    Display="always"
+    Required="true"
+    Mask="false"/>
+  <Config
+    Name="SFTP_PORT"
+    Target="SFTP_PORT"
+    Default="22"
+    Mode=""
+    Description="Remote SFTP server port"
+    Type="Variable"
+    Display="always"
+    Required="true"
+    Mask="false">22</Config>
+  <Config
+    Name="SFTP_USER"
+    Target="SFTP_USER"
+    Default=""
+    Mode=""
+    Description="SFTP username"
+    Type="Variable"
+    Display="always"
+    Required="true"
+    Mask="false"/>
+  <Config
+    Name="SFTP_PASS"
+    Target="SFTP_PASS"
+    Default=""
+    Mode=""
+    Description="SFTP password (leave empty if using key auth)"
+    Type="Variable"
+    Display="always"
+    Required="false"
+    Mask="true"/>
+  <Config
+    Name="SOURCE_TAG"
+    Target="SOURCE_TAG"
+    Default="ftp"
+    Mode=""
+    Description="qBittorrent tag that marks torrents ready for download"
+    Type="Variable"
+    Display="always"
+    Required="true"
+    Mask="false">ftp</Config>
+  <Config
+    Name="DONE_TAG"
+    Target="DONE_TAG"
+    Default="done"
+    Mode=""
+    Description="Tag applied after successful download"
+    Type="Variable"
+    Display="always"
+    Required="true"
+    Mask="false">done</Config>
+  <Config
+    Name="ERROR_TAG"
+    Target="ERROR_TAG"
+    Default="error"
+    Mode=""
+    Description="Tag applied when download fails"
+    Type="Variable"
+    Display="always"
+    Required="false"
+    Mask="false">error</Config>
+  <Config
+    Name="LFTP_PARALLEL"
+    Target="LFTP_PARALLEL"
+    Default="4"
+    Mode=""
+    Description="Number of parallel lftp connections (2-8)"
+    Type="Variable"
+    Display="always"
+    Required="false"
+    Mask="false">4</Config>
+  <Config
+    Name="POLL_SECONDS"
+    Target="POLL_SECONDS"
+    Default="30"
+    Mode=""
+    Description="Seconds between polling qBittorrent for new completed torrents"
+    Type="Variable"
+    Display="advanced"
+    Required="false"
+    Mask="false">30</Config>
+  <Config
+    Name="SKIP_IF_EXISTS"
+    Target="SKIP_IF_EXISTS"
+    Default="1"
+    Mode=""
+    Description="Skip download if local file already exists (1=yes, 0=no)"
+    Type="Variable"
+    Display="advanced"
+    Required="false"
+    Mask="false">1</Config>
+  <Config
+    Name="SSH_KEEPALIVE"
+    Target="SSH_KEEPALIVE"
+    Default="15"
+    Mode=""
+    Description="SSH keepalive interval in seconds"
+    Type="Variable"
+    Display="advanced"
+    Required="false"
+    Mask="false">15</Config>
+  <Config
+    Name="DASHBOARD_PORT"
+    Target="DASHBOARD_PORT"
+    Default="8686"
+    Mode=""
+    Description="Dashboard web UI port (must match the port mapping above)"
+    Type="Variable"
+    Display="advanced"
+    Required="false"
+    Mask="false">8686</Config>
+</Container>
