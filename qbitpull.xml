@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <Container version="2">
   <Name>qbitpull</Name>
-  <Repository>ghcr.io/coppiman11/qbitpull:latest</Repository>
-  <Registry>https://ghcr.io</Registry>
+  <Repository>coppiman11/qbitpull:latest</Repository>
+  <Registry>https://hub.docker.com/r/coppiman11/qbitpull</Registry>
   <Network>bridge</Network>
   <MyIP/>
   <Shell>bash</Shell>
